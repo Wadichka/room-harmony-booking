@@ -1,4 +1,6 @@
-export const rooms = [
+import { Room, Booking } from "../types";
+
+export const rooms: Room[] = [
   {
     id: "1",
     name: "Royal Suite",
@@ -33,9 +35,9 @@ export const rooms = [
     images: ["/placeholder.svg"],
     amenities: ["Twin Beds", "TV", "Wi-Fi"],
   },
-] as const;
+];
 
-export const bookings = [
+export const mockBookings: Booking[] = [
   {
     id: "1",
     roomId: "1",
@@ -44,4 +46,4 @@ export const bookings = [
     checkOut: "2024-04-05",
     status: "confirmed",
   },
-] as const;
+];
