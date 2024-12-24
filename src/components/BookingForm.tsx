@@ -15,6 +15,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
 import { Room } from "../types";
 
 interface BookingFormProps {
@@ -35,6 +37,7 @@ export const BookingForm = ({
     lastName: "",
     patronymic: "",
     birthDate: "",
+    sex: "male",
     documentType: "",
     documentSeries: "",
     documentNumber: "",
@@ -90,6 +93,23 @@ export const BookingForm = ({
               }
               required
             />
+            <div className="space-y-3">
+              <Label>Sex</Label>
+              <RadioGroup
+                value={formData.sex}
+                onValueChange={(value) => setFormData({ ...formData, sex: value })}
+                className="flex gap-4"
+              >
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="male" id="male" />
+                  <Label htmlFor="male">Male</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="female" id="female" />
+                  <Label htmlFor="female">Female</Label>
+                </div>
+              </RadioGroup>
+            </div>
             <Select
               value={formData.documentType}
               onValueChange={(value) =>
